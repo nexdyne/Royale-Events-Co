@@ -70,8 +70,10 @@ interface PackageBuilder {
   cocktailTables: boolean;
 }
 
+type OccasionType = 'wedding' | 'birthday' | 'corporate' | 'baby' | 'anniversary';
+
 export default function Packages() {
-  const [activeOccasion, setActiveOccasion] = useState('wedding');
+  const [activeOccasion, setActiveOccasion] = useState<OccasionType>('wedding');
 
   const [customizeMode, setCustomizeMode] = useState(false);
   const [customizedPackage, setCustomizedPackage] = useState<Package | null>(null);
@@ -91,7 +93,7 @@ export default function Packages() {
   const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
   const [expandedItems, setExpandedItems] = useState<{ [key: string]: boolean }>({});
 
-  const occasions = [
+  const occasions: { id: OccasionType; name: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'wedding', name: 'Weddings', icon: Heart },
     { id: 'birthday', name: 'Birthday Parties', icon: Gift },
     { id: 'corporate', name: 'Corporate Events', icon: Award },
@@ -112,7 +114,7 @@ export default function Packages() {
     { id: 'cocktailTables', name: 'Cocktail Tables', price: 35, unit: 'each', description: 'High-top tables with linens' }
   ];
 
-  const packages = {
+  const packages: Record<OccasionType, Package[]> = {
     wedding: [
       {
         id: 'royal-wedding',
@@ -736,7 +738,7 @@ export default function Packages() {
                     {pkg.includes.slice(0, expandedItems[pkg.id] ? pkg.includes.length : 6).map((item, index) => {
                       const itemData = typeof item === 'string' ? { item, removable: false, price: 0 } : item;
                       const isRemoved = customizedPackage?.id === pkg.id && 
-                        customizedPackage.removedItems.some(removed => removed.item === itemData.item);
+                        customizedPackage.removedItems?.some(removed => removed.item === itemData.item) || false;
                       
                       return (
                         <div key={index} className={`flex items-start space-x-2 ${isRemoved ? 'opacity-50' : ''}`}>
@@ -778,7 +780,7 @@ export default function Packages() {
                 <div className="p-6 pt-0">
                   <h5 className="font-semibold text-[#1A365D] mb-3">Popular Add-Ons:</h5>
                   <div className="space-y-2">
-                    {pkg.addOns.slice(0, 3).map((addOn, index) => {
+                    {pkg.addOns?.slice(0, 3).map((addOn, index) => {
                       const isSelected = selectedAddOns.some(selected => selected.name === addOn.name);
                       return (
                         <div 
