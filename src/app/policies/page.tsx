@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Crown, FileText, Building, Shield, RefreshCw, Lock, Calendar, ExternalLink } from 'lucide-react';
+import { FileText, Building, Shield, RefreshCw, Lock, Calendar, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

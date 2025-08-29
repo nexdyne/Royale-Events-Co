@@ -7,6 +7,7 @@ import {
   Check, 
   Phone,
   Mail,
+  Calendar,
   Sparkles,
   Gift,
   Calculator,

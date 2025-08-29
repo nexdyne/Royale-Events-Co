@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Crown, FileText, ArrowLeft, Phone, Mail, Calendar, CheckCircle, AlertTriangle, Clock, Shield } from 'lucide-react';
+import { FileText, ArrowLeft, Phone, Mail, Calendar, CheckCircle, AlertTriangle, Clock, Shield } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
