@@ -843,7 +843,7 @@ export default function Packages() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
                         <button
-                          onClick={() => updateBuilderQuantity(product.id, -1)}
+                          onClick={() => updateBuilderQuantity(product.id as keyof PackageBuilder, -1)}
                           className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
                           disabled={!packageBuilder[product.id]}
                         >
@@ -851,7 +851,7 @@ export default function Packages() {
                         </button>
                         <span className="w-8 text-center font-medium">{packageBuilder[product.id] || 0}</span>
                         <button
-                          onClick={() => updateBuilderQuantity(product.id, 1)}
+                          onClick={() => updateBuilderQuantity(product.id as keyof PackageBuilder, 1)}
                           className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
                         >
                           <Plus className="h-4 w-4" />
@@ -867,7 +867,7 @@ export default function Packages() {
                         <input
                           type="checkbox"
                           checked={packageBuilder[product.id] || false}
-                          onChange={() => toggleBuilderItem(product.id)}
+                          onChange={() => toggleBuilderItem(product.id as keyof PackageBuilder)}
                           className="rounded border-gray-300 text-[#FF6B35] focus:ring-[#FF6B35]"
                         />
                         <span className="text-sm text-gray-700">Include in package</span>
@@ -1061,17 +1061,17 @@ export default function Packages() {
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200">
                 <button
-                  onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
+                  onClick={() => setExpandedFAQ(expandedFAQ === index.toString() ? null : index.toString())}
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50"
                 >
                   <span className="font-semibold text-[#1A365D]">{faq.question}</span>
-                  {expandedFAQ === index ? (
+                  {expandedFAQ === index.toString() ? (
                     <ChevronUp className="h-5 w-5 text-gray-500" />
                   ) : (
                     <ChevronDown className="h-5 w-5 text-gray-500" />
                   )}
                 </button>
-                {expandedFAQ === index && (
+                {expandedFAQ === index.toString() && (
                   <div className="px-6 pb-4">
                     <p className="text-gray-700">{faq.answer}</p>
                   </div>
