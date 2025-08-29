@@ -5,13 +5,8 @@ import {
   Crown, 
   Star, 
   Check, 
-  ArrowRight, 
   Phone,
   Mail,
-  MapPin,
-  Calendar,
-  Users,
-  Camera,
   Sparkles,
   Gift,
   Calculator,
@@ -28,7 +23,6 @@ import {
   MessageCircle,
   Headphones
 } from 'lucide-react';
-import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -60,13 +54,7 @@ interface AddOn {
   description: string;
 }
 
-interface BuilderProduct {
-  id: string;
-  name: string;
-  price: number;
-  unit: string;
-  description?: string;
-}
+
 
 interface PackageBuilder {
   chairs: number;
@@ -83,7 +71,7 @@ interface PackageBuilder {
 
 export default function Packages() {
   const [activeOccasion, setActiveOccasion] = useState('wedding');
-  const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
+
   const [customizeMode, setCustomizeMode] = useState(false);
   const [customizedPackage, setCustomizedPackage] = useState<Package | null>(null);
   const [selectedAddOns, setSelectedAddOns] = useState<AddOn[]>([]);
@@ -611,7 +599,7 @@ export default function Packages() {
                   <div>
                     <div className="text-lg font-semibold">Customized Package Total</div>
                     <div className="text-sm opacity-90">
-                      {customizedPackage.removedItems?.length > 0 && `${customizedPackage.removedItems?.length} items removed • `}
+                      {customizedPackage.removedItems && customizedPackage.removedItems.length > 0 && `${customizedPackage.removedItems.length} items removed • `}
                       {selectedAddOns.length > 0 && `${selectedAddOns.length} add-ons selected`}
                     </div>
                   </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Search, Calendar, CreditCard, Truck, Package, CheckCircle, Phone, Mail, Crown, Users, Star, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search, Calendar, CreditCard, Truck, Package, CheckCircle, Phone, Mail, Crown, Users, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

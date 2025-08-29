@@ -3,7 +3,6 @@
 import React from 'react';
 import { 
   Camera, 
-  Lightbulb, 
   Palette, 
   Crown, 
   Phone, 
@@ -12,9 +11,7 @@ import {
   Users, 
   Image, 
   Video, 
-  ArrowRight,
   Star,
-  Calendar,
   User,
   Briefcase,
   PartyPopper,
@@ -120,7 +117,7 @@ export default function StudioPage() {
             {/* High-Resolution Photos */}
             <div className="bg-gray-50 rounded-xl p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] rounded-full flex items-center justify-center mx-auto mb-6">
-                <Image className="h-8 w-8 text-white" />
+                <Image className="h-8 w-8 text-white" alt="High-resolution photos" />
               </div>
               <h3 className="text-xl font-bold text-[#1A365D] mb-4">High-Resolution Photos</h3>
               <p className="text-gray-600">
